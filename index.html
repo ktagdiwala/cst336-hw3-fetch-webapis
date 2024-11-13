@@ -10,27 +10,52 @@
     </head>
 
     <body>
-        <h1>Country Quest</h1>
+        <header>
+            <h1>Country Quest</h1>
+        </header>
 
-        <div>
+        <div id="interact">
             Country:
             <select id="country" name="country">
             <option>Select Country</option>
-            </select> <br>
+            </select>
+            <button id="submit"><span>Learn More</span></button><br>
+        <span id="countryError"></span><br><br>
         </div>
-        <div><span id="countryError"></span></div>
-        <div><button id="submit">Learn More</button></div>
 
-        <img id="flag" src="" alt="">
-        <p>Common Name: <span id="common"></span></p>
-        <p>Official Name: <span id="official"></span></p>
-        <p>Capital: <span id="capital"></span></p>
-        <p>Continents: <span id="continents"></span></p>
-        <p>Latitude and Longitude: <span id="latlng"></span></p>
-        <p>Timezones: <span id="timezones"></span></p>
-        <p>Currencies used: <span id="currency"></span></p>
-        <p>Languages: <span id="languages"></span></p>
-        <p>Population: <span id="population"></span></p>
+        <div class="container">
+            <h2><span id="countryName"></span></h2>
+            <img id="flag" src="" alt="">
+            <table>
+                <tr>
+                    <td class="cell"><p><strong> Common Name: </strong><br> <span id="common" class="details"></span></p></td>
+                    <td class="cell"><p><strong> Official Name: </strong><br> <span id="official" class="details"></span></p></td>
+                    <td class="cell"><p><strong> Capital: </strong><br> <span id="capital" class="details"></span></p></td>
+                </tr>
+                <tr>
+                    <td class="cell"><p><strong> Continent(s): </strong><br> <span id="continents" class="details"></span></p></td>
+                    <td class="cell"><p><strong> Latitude and Longitude: </strong><br> <span id="latlng" class="details"></span></p></td>
+                    <td class="cell"><p><strong> Timezone(s): </strong><br> <span id="timezones" class="details"></span></p></td>
+                </tr>
+                <tr>
+                    <td class="cell"><p><strong> Currency(s): </strong><br> <span id="currency" class="details"></span></p></td>
+                    <td class="cell"><p><strong> Language(s): </strong><br> <span id="languages" class="details"></span></p></td>
+                    <td class="cell"><p><strong> Population: </strong><br> <span id="population" class="details"></span></p></td>
+                </tr>
+            </table>
+        </div>
+
+        <footer class = .footer>
+            <hr>
+            <div id="footer-content">
+                <img id="csumb-logo" src="img/CSUMBLogo_Circle.png" alt="CSUMB Logo"><br>
+                <div>
+                    CST336: Internet Programming. 2024&copy; Tagdiwala <br>
+                    <strong>Disclaimer:</strong> The information on this webpage may be fictitious.<br>
+                    It is used for academic purposes only.
+                </div>
+            </div>
+        </footer>
 
         <script src="js/script.js"></script>
     </body>

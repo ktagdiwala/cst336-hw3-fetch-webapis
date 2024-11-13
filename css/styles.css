@@ -1,15 +1,194 @@
-body{
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    min-height: 100vh;
+    position: relative;
+    align-items: center;
     text-align: center;
     align-content: center;
     font-family: "Antic Slab", serif;
     font-style: normal;
-    background-color: #29202B; 
-    color:#EAE5E1;
+    background-image: url('../img/red_tile_bg.jpg');
+    background-color: #29202B;
+    color: #EAE5E1;
     font-size: 1.5em;
+}
+
+header {
+    margin-top: 20px;
+    padding: 0px 20px;
+    height: auto;
+    border: #EEBBA8 3px solid;
+    background-color: #9822206f;
 }
 
 h1 {
     font-family: "Rochester", cursive;
     font-weight: 400;
     font-style: normal;
+    color: #EEBBA8;
+    font-size: 2.7em;
+    padding: 0px 20px;
+    margin: 15px;
+}
+
+h2 {
+    font-family: "Rochester", cursive;
+    font-weight: 600;
+    font-style: normal;
+    color: #EAE5E1;
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+
+.details {
+    color: #f0b643;
+}
+
+select {
+    border: #29202B 2px solid;
+    border-radius: 8px;
+    background-color: #EAE5E1;
+    color:#29202B;
+    font-family: "Antic Slab", sans-serif;
+    text-align: center;
+    margin-left: 5px;
+    font-size: 20px;
+}
+
+option {
+    font-family: Georgia, serif;
+}
+
+button {
+    font-size: 1em;
+    font-family: "Antic Slab", serif;
+    border: #29202B solid;
+    color: #29202B;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: all 0.5s;
+    animation: colorCycle 3s linear infinite;
+}
+
+button:enabled:hover {
+    animation-play-state: running;
+}
+
+button:enabled span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+
+
+button:enabled span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+
+button:enabled:hover span {
+    padding-right: 25px;
+}
+
+
+button:enabled:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+/* Define keyframes for button color cycling animation */
+@keyframes colorCycle {
+    0% {background-color: #FF989C;}
+    12% {background-color: #FFD87E;}
+    25% {background-color: #FBF78B;}
+    38% {background-color: #A0F7B3;}
+    50% {background-color: #BFECFB;}
+    63% {background-color: #C2C8E2;}
+    75% {background-color: #C9B6D0;}
+    88% {background-color: #DD98FF;}
+    100% {background-color: #FF989C;}
+}
+
+
+/* Pause button animation by default */
+button {
+    animation-play-state: paused;
+}
+
+#csumb-logo {
+    width: 70px;
+    height: auto;
+    border: 2px #c87725 solid;
+    border-radius: 100%;
+    margin-right: 10px;
+}
+
+footer {
+    margin-top: auto;
+    bottom: 0;
+    width: 100%;
+    text-align: start;
+    color: #c87725;
+    font-weight: 400;
+    font-size: 0.75em;
+}
+
+#footer-content { /* displays image and text side-by-side */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0px;
+}
+
+table,tr,td {
+    margin: auto;
+    margin-bottom: 20px;
+    table-layout: fixed;
+    width: 90%;
+}
+
+td{
+    margin: auto;
+}
+
+.cell{
+    border-radius: 20px;
+    margin:10px;
+    padding:10px;
+    background-color: #29202B;
+    color:#EAE5E1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    align-items: center;
+    align-content: center;
+}
+
+.cell:hover:hover{
+    background-color: #982220;
+    transform: translateY(-5px);
+    transition: 0.4s ease;
+}
+
+#interact{
+    /* background-color: #c87725; */
+    width: 75%;
+    margin: auto;
+    padding-top: 10px;
+}
+
+.container {
+    border: #EAE5E1 3px solid;
+    width: 75%;
+    margin-bottom: 20px;
+}
+
+#flag {
+    margin: 20px 10px;
+    border: #EAE5E1 3px solid;
 }

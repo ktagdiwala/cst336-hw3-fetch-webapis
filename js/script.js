@@ -40,7 +40,8 @@ function validateInput(){
     let countryError = document.querySelector("#countryError");
     if(country=="Select Country"){
         countryError.innerHTML = "Please Select a Country to Learn More";
-        document.querySelector("#countryError").style.color = "#FDBCB4";
+        countryError.style.color = "#EEBBA8";
+        countryError.style.fontWeight = "bold";
         isValid = false;
         console.log("sorry, you need an input");
     }
@@ -54,7 +55,7 @@ function validateInput(){
 async function displayInfo(){
     let country = document.querySelector("#country").value;
     // alert(document.querySelector("#zip").value);
-    let url = `https://restcountries.com/v3.1/name/${country}`;
+    let url = `https://restcountries.com/v3.1/name/${country}?fullText=true`;
     let response = await fetch(url);
     let data = await response.json();
     let countryError = document.querySelector("#countryError");
@@ -66,14 +67,25 @@ async function displayInfo(){
         countryError.innerHTML = "";
         document.querySelector("#flag").src = data[0].flags.png;
         document.querySelector("#flag").alt = data[0].flags.alt;
+        document.querySelector("#countryName").innerHTML = data[0].name.common;
         document.querySelector("#common").innerHTML = data[0].name.common;
         document.querySelector("#official").innerHTML = data[0].name.official;
         document.querySelector("#capital").innerHTML = data[0].capital;
         document.querySelector("#continents").innerHTML = data[0].continents.join(', ');
         document.querySelector("#latlng").innerHTML = data[0].latlng.join(', ');
         document.querySelector("#timezones").innerHTML = data[0].timezones.join(', ');
-        document.querySelector("#currency").innerHTML = Object.keys(data[0].currencies).join(', ');
-        document.querySelector("#languages").innerHTML = Object.keys(data[0].languages).join(', ');
+        // document.querySelector("#currency").innerHTML = Object.keys(data[0].currencies).join(', ');
+        // Extract and display currency name and symbol
+        let currencies = data[0].currencies; 
+        let currencyList = ''; 
+        for (let key in currencies) { 
+            if (currencies.hasOwnProperty(key)) { 
+                let currency = currencies[key]; 
+                currencyList += `${currency.name} (${currency.symbol}) `; 
+            } 
+        } 
+        document.querySelector("#currency").innerHTML=currencyList;
+        document.querySelector("#languages").innerHTML = Object.values(data[0].languages).join(', ');
         document.querySelector("#population").innerHTML = data[0].population;
     }
 }
